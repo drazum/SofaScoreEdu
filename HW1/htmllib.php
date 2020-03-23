@@ -48,6 +48,14 @@ function end_head (){
  * @param string $stringStart pocetak html tag-a u obliku stringa
  * @return string string html otvornenog taga s njegovim atributima i vrijednostima
  */
+
+/*
+Nepotrebna fja!
+
+Ovo je trebala raditi fja create_element.
+
+previše komplicirano
+*/
 function concatenate_tag_and_attributes(array $params = [], bool &$contents = false, string $stringStart) : string {
     if(!empty($params)) {
         foreach ($params as $k => $v){
@@ -73,6 +81,10 @@ function concatenate_tag_and_attributes(array $params = [], bool &$contents = fa
 * @param { array } $params asocijativno polje
 * parova atribut = > vrijednost
 */
+
+/*
+create_element....
+*/
 function begin_body ( array $params = [] ) : void{
     $startTag = "<body";
     $contentsExist = false;
@@ -96,6 +108,10 @@ function end_body () : void{
  * @param { array } $params polje parametara spremljenih
  * po principu ' atribut ' = > ' vrijednost '
  */
+
+/*
+create_element....
+*/
 function create_table ( array $params = [] ) : void{
     $startTag = "<table";
     $contentsExists = false;
@@ -135,6 +151,10 @@ function end_table () : void{
  * jedan redak tablice
  * @return niz znakova koji predstavlja HTML kod retka tablice
  */
+
+/*
+create_element....
+*/
 function create_table_row ( array $params = [] ) {
     $startTag = "<tr";
     $contentsExists = false;
@@ -169,6 +189,10 @@ function create_table_row ( array $params = [] ) {
  * @param { array } $params polje parametara koje odredjuje celiju
  * @return niz znakova koji odredjuje HTML kod celije
  */
+
+/*
+create_element....
+*/
 function create_table_cell ( array $params = [] ){
     $startTag = "<td";
     $contentsExists = false;
@@ -204,7 +228,50 @@ function create_table_cell ( array $params = [] ){
  * @param { array } $params polje parametara koje odredjuje celiju
  * @return niz znakova jednak HTML kodu elementa
  */
+
+/*
+create_element....
+*/
 function create_element ( string $name , $closed = true , array $params = [] ){
+    
+    /*
+    OVO JE BILA IDEJA!
+    
+    DAKLE, DRUGE FJE SU TREBALE POZIVATI OVU I OVA FJA BI SVE AUTOMAGIČNO RADILA!
+    
+    $CONTENTS = "contents";
+    $element = "<" . $name;
+
+    if ($params != NULL) {
+        foreach ($params as $key => $value) {
+            if ($key === $CONTENTS) {
+                continue;
+            }
+
+            $element .= " " . $key . "=\"" . $value . "\""; 
+        }
+    }
+
+    $element .= ">";
+
+    if (isset($params[$CONTENTS])) {
+        $contents = $params[$CONTENTS];
+
+        if (is_array($contents)) {
+            foreach ($contents as $value) {
+                $element .= $value;
+            }
+        } else {
+            $element .= $params[$CONTENTS];
+        }
+    }
+
+    if ($closed) {
+        $element .= "</" . $name . ">";
+    }
+
+    return $element . "\n";
+    */
     $startTag = "<".$name;
     $contentsExists = false;
 
