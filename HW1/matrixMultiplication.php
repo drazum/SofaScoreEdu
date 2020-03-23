@@ -4,6 +4,10 @@
  */
 
 /* Matricno mnozenje dvije ulancane matrice */
+
+/*
+gdje je provjera ulančanosti???
+*/
 echo create_element("h1", true, ['contents' => ["5. Matrices multiplication"]]);
 $matrixOne = [[1, 2, 3],[4, 5, 6]];
 $matrixTwo = [[5, 8, 1],[3, 5, 6],[7, 1, 5]];
