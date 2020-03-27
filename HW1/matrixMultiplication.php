@@ -47,20 +47,24 @@ for($i = 0; $i < 3; $i++){
 end_table();
 
 echo create_element("p", true, ['style' => 'display:inline;font-size:20px', 'contents' => [' = ']]);
-
-create_table(['style' => 'display:inline-table;vertical-align:middle','border' => '1']);
-for($i=0;$i<2;$i++) { // redak1
-    $tableMatrixRow = ['contents' => []];
-    for($k=0;$k<3;$k++) { // stupac2
-        for($j=0;$j<3;$j++) { // stupac1 i redak2
-            $resultMatrix[$i][$k] += $matrixOne[$i][$j]*$matrixTwo[$j][$k];
+if(count($matrixOne[0])===count($matrixTwo))
+{
+    create_table(['style' => 'display:inline-table;vertical-align:middle', 'border' => '1']);
+    for ($i = 0; $i < 2; $i++) { // redak1
+        $tableMatrixRow = ['contents' => []];
+        for ($k = 0; $k < 3; $k++) { // stupac2
+            for ($j = 0; $j < 3; $j++) { // stupac1 i redak2
+                $resultMatrix[$i][$k] += $matrixOne[$i][$j] * $matrixTwo[$j][$k];
+            }
+            $tableMatrixCell = create_table_cell(['style' => 'text-align:center', 'contents' => $resultMatrix[$i][$k]]);
+            array_push($tableMatrixRow['contents'], $tableMatrixCell);
         }
-        $tableMatrixCell = create_table_cell(['style' => 'text-align:center','contents' => $resultMatrix[$i][$k]]);
-        array_push($tableMatrixRow['contents'], $tableMatrixCell);
+        echo create_table_row($tableMatrixRow);
+        unset($tableMatrixRow);
     }
-    echo create_table_row($tableMatrixRow);
-    unset($tableMatrixRow);
+    end_table();
 }
-end_table();
-
+else {
+    echo "Matrice nisu ulancane";
+}
 ?>
