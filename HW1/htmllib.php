@@ -114,23 +114,10 @@ function end_table () : void{
  * @return niz znakova koji predstavlja HTML kod retka tablice
  */
 function create_table_row ( array $params = [] ) {
-    $startTag = "<tr";
-    $contentsExists = false;
+    $tag = "tr";
+    $closingTag = true;
 
-    $tableRow = concatenate_tag_and_attributes($params, $contentsExists, $startTag);
-
-    /* Ako kljuc 'contents' postoji, spremi element po element
-         vrijednosti u string prije zatvaranja tag-a */
-    if($contentsExists){
-        foreach ($params['contents'] as $content) {
-            // $content je oblika <td>celija</td>
-            $tableRow .= $content;
-        }
-    }
-
-    $tableRow .= "</tr>";
-
-    $tableRow = create_element("tr", true, $params);
+    $tableRow = create_element($tag, $closingTag, $params);
 
     return $tableRow;
 }
@@ -149,20 +136,12 @@ function create_table_row ( array $params = [] ) {
  * @param { array } $params polje parametara koje odredjuje celiju
  * @return niz znakova koji odredjuje HTML kod celije
  */
-function create_table_cell ( array $params = [] ){
-    $startTag = "<td";
-    $contentsExists = false;
+function create_table_cell ( array $params = [] ) {
+    $tag = "td";
+    $closingTag = true;
 
-    $tableCell = concatenate_tag_and_attributes($params, $contentsExists, $startTag);
+    $tableCell = create_element($tag, $closingTag, $params);
 
-    /* Ako kljuc 'contents' postoji, spremi vrijednost u string
-        prije zatvaranja tag-a */
-    if($contentsExists){
-        $tableCell .= $params['contents'];
-    }
-
-    $tableCell .= "</td>";
-    $tableCell = create_element("td", true, $params);
     // Zavrsni oblik: <td  atribut1='vrijednost1' atribut2='vrijednost2'>DATA</td>
     return $tableCell;
 }
