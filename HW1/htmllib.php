@@ -39,39 +39,6 @@ function end_head (){
 }
 
 /**
- * Funkcija spaja atribute i njihove vrijednosti s
- * pripadajucim tagom u obliku html koda
- * @param array $params polje oblika key-value koje sadrzi
- * atribute i njihove vrijednosti, a moze sadrzavati i contents
- * @param bool $contents referenca kojom javljamo funkciji sadrzi
- * li $params 'contents' kljuc
- * @param string $stringStart pocetak html tag-a u obliku stringa
- * @return string string html otvornenog taga s njegovim atributima i vrijednostima
- */
-
-/*
-Nepotrebna fja!
-
-Ovo je trebala raditi fja create_element.
-
-previše komplicirano
-*/
-function concatenate_tag_and_attributes(array $params = [], bool &$contents = false, string $stringStart) : string {
-    if(!empty($params)) {
-        foreach ($params as $k => $v){
-            if($k !== 'contents'){
-                $stringStart .= " " . $k . "='$v'";
-            } else if(!empty($v)){
-                $contents = true;
-            }
-        }
-    }
-    $stringStart .= ">";
-    // Final string(HTML): <tag attribute1='value1' attribute2='value2'>
-    return $stringStart;
-}
-
-/**
 * Ispisuje otvarajuci tag < body > te mu
 * pridruzuje parove ( atribut , vrijednost ) na
 * temelju polja predanih parametara .
@@ -81,15 +48,13 @@ function concatenate_tag_and_attributes(array $params = [], bool &$contents = fa
 * @param { array } $params asocijativno polje
 * parova atribut = > vrijednost
 */
-
-/*
-create_element....
-*/
 function begin_body ( array $params = [] ) : void{
     $startTag = "<body";
     $contentsExist = false;
 
-    $body = concatenate_tag_and_attributes($params, $contentsExist, $startTag);
+    $body = create_element("body", false, $params);
+
+    //$body = concatenate_tag_and_attributes($params, $contentsExist, $startTag);
     echo $body;
 }
 
@@ -108,15 +73,12 @@ function end_body () : void{
  * @param { array } $params polje parametara spremljenih
  * po principu ' atribut ' = > ' vrijednost '
  */
-
-/*
-create_element....
-*/
 function create_table ( array $params = [] ) : void{
     $startTag = "<table";
     $contentsExists = false;
 
-    $table = concatenate_tag_and_attributes($params,$contentsExists, $startTag);
+    $table = create_element("table", false, $params);
+    //$table = concatenate_tag_and_attributes($params,$contentsExists, $startTag);
 
     echo $table;
 }
@@ -151,10 +113,6 @@ function end_table () : void{
  * jedan redak tablice
  * @return niz znakova koji predstavlja HTML kod retka tablice
  */
-
-/*
-create_element....
-*/
 function create_table_row ( array $params = [] ) {
     $startTag = "<tr";
     $contentsExists = false;
@@ -171,6 +129,8 @@ function create_table_row ( array $params = [] ) {
     }
 
     $tableRow .= "</tr>";
+
+    $tableRow = create_element("tr", true, $params);
 
     return $tableRow;
 }
@@ -189,10 +149,6 @@ function create_table_row ( array $params = [] ) {
  * @param { array } $params polje parametara koje odredjuje celiju
  * @return niz znakova koji odredjuje HTML kod celije
  */
-
-/*
-create_element....
-*/
 function create_table_cell ( array $params = [] ){
     $startTag = "<td";
     $contentsExists = false;
@@ -206,6 +162,7 @@ function create_table_cell ( array $params = [] ){
     }
 
     $tableCell .= "</td>";
+    $tableCell = create_element("td", true, $params);
     // Zavrsni oblik: <td  atribut1='vrijednost1' atribut2='vrijednost2'>DATA</td>
     return $tableCell;
 }
@@ -228,41 +185,32 @@ function create_table_cell ( array $params = [] ){
  * @param { array } $params polje parametara koje odredjuje celiju
  * @return niz znakova jednak HTML kodu elementa
  */
-
-/*
-create_element....
-*/
 function create_element ( string $name , $closed = true , array $params = [] ){
-    
-    /*
-    OVO JE BILA IDEJA!
-    
-    DAKLE, DRUGE FJE SU TREBALE POZIVATI OVU I OVA FJA BI SVE AUTOMAGIČNO RADILA!
-    
-    $CONTENTS = "contents";
-    $element = "<" . $name;
 
-    if ($params != NULL) {
-        foreach ($params as $key => $value) {
-            if ($key === $CONTENTS) {
+    $element = "<".$name;
+    $CONTENTS = "contents";
+
+    if(!empty($params)) {
+        foreach ($params as $k => $v) {
+            if ($k === $CONTENTS) {
                 continue;
             }
 
-            $element .= " " . $key . "=\"" . $value . "\""; 
+            $element .= " " . $k . "=\"" . $v . "\"";
         }
     }
-
     $element .= ">";
 
-    if (isset($params[$CONTENTS])) {
+    if(isset($params[$CONTENTS])) {
         $contents = $params[$CONTENTS];
 
         if (is_array($contents)) {
-            foreach ($contents as $value) {
-                $element .= $value;
+            foreach ($contents as $v) {
+                $element .= $v;
             }
         } else {
             $element .= $params[$CONTENTS];
+            //$element .= $contents;
         }
     }
 
@@ -271,25 +219,6 @@ function create_element ( string $name , $closed = true , array $params = [] ){
     }
 
     return $element . "\n";
-    */
-    $startTag = "<".$name;
-    $contentsExists = false;
-
-    $element = concatenate_tag_and_attributes($params, $contentsExists, $startTag);
-
-    /* Ako postoji zatvarajuci tag */
-    if($closed){
-        /* Ako kljuc 'contents' postoji, spremi element po element
-         vrijednosti u string prije zatvaranja tag-a */
-        if($contentsExists){
-            foreach ($params['contents'] as $content){
-                $element .= $content;
-            }
-        }
-        $element .= "</" . $name . ">";
-    }
-
-    return $element;
 }
 
 ?>
