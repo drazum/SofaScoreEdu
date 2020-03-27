@@ -1,0 +1,24 @@
+	# broj unutar viticastih zagrada oznacava o kojem tipu
+# pitanja se radi
+# 1 - pitanje koje ima samo jedan tocan odgovor
+# 2 - pitanje koje ima vise tocnih odgovora
+# 3 - pitanje na koje korisnik mora sam unijeti odgovor
+# format pitanja u kojem je tocan samo jedan odgovor
+Koliko je metara visoka Zagrebacka katedrala? {1}: 95, 113, 98, 108 = 108
+Koliko bitova sadrzi IPv6? {1}: 32, 64, 128, 256 = 128
+S kojom drzavom ne granici Vijetnam? {1}: Kina, Laos, Mianmar, Kambodza = Mianmar
+Prirodni satelit Europa kruzi oko kojeg planeta? {1}: Jupiter, Mars, Pluton, Uran = Jupiter
+Drugi po velicini otok u mediteranu je: {1}: Sicilija, Korzika, Sardinija, Malta = Sardinija
+S koliko je opisnika opisan imenovani cjevovod? {1}: jednim, dva, tri, cetiri = jednim
+# format pitanja u kojem je tocno vise odgovora
+Oznacite sve kratice datotecnih sustava. {2}: ext2, FAT, KiK, NTFS = ext2, FAT, NTFS
+Stogodisnji rat bio je izmedu kojih drzava? {2}: Engleska, Madarska, Poljska, Francuska = Engleska, Francuska
+Oznacite pisce renesanse iz prikazane skupine: {2}: Niccolo Machiavelli, Michelangelo, Herman Barr, Ivan Gundulic = Niccolo Machiavelli, Michelangelo 
+Oznacite drzave u koja nisu bile odrzane Olimpijske Igre. {2} Spanjolska, Poljska, Japan, Gruzija = Poljska, Gruzija
+# format pitanja u kojem korisnik mora sam unijeti odgovor
+# tocnost korisnikovog odgovora ne smije ovisiti o
+# koristenju malih i velikih slova ,
+# odnosno odgovori ` jedan 'i ` jEdAN ' moraju biti jednaki
+Rahitis je bolest urokovana nedostatkom kojeg vitamina? {3}:= D
+Drzava koja je tri puta usla u finale svjetskog nogometnog prvenstva, ali ga nije nikad osvojila: {3}:= Nizozemska
+Koliko ravnina ima piramida?(rijecima) {3}:= pet
