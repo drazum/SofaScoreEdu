@@ -40,5 +40,5 @@ begin_body(["style" => "background-color:BurlyWood", "text" => "Navy"]);
 
 end_body();
 
-end_html();
+end_html(); 
 ?>
