@@ -2,7 +2,7 @@
 require "libraries/htmllib.php";
 require "functions.php";
 
-if(isset($_FILES["document"])) {
+if(isset($_FILES["document"])) { 
     $docName = $_FILES["document"]["name"];
     $docExtension = explode(".", $docName)[1];
 
