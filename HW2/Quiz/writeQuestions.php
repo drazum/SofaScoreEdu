@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 $questionCount = 0;
 
+//definitivno razbiti ovo na više funkcija da kod bude čitkiji!
+
 for($i = 0; $i < (int)$oneAnswer; $i++) {
     if(!array_key_exists($i, $typeOne["offeredAnswers"])) {
         break;
