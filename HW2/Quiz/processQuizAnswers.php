@@ -18,6 +18,8 @@ begin_body(["style" => "background-color:DarkSlateGrey", "text" => "FloralWhite"
 
     $correctAnswersSum = 0;
     for($i = 1; $i <= $numberOfQuestions; $i++) {
+        //što ako korisnik preda prazan kviz?
+        //tada neće vidjeti točne odgovore
         if (isset($_GET["q1_".$i]) && isset($_GET["q1_".$i."_result"])){
             $userAnswer = $_GET["q1_".$i];
             $correctAnswer = $_GET["q1_".$i."_result"];
@@ -49,6 +51,8 @@ begin_body(["style" => "background-color:DarkSlateGrey", "text" => "FloralWhite"
         if (isset($_GET["q3_".$i]) && isset($_GET["q3_".$i."_result"])){
             $userAnswer = $_GET["q3_".$i];
             $correctAnswer = $_GET["q3_".$i."_result"];
+            //ovo nije ok. trebalo bi pozvati trim funkciju nad korisničkim unosom i sva velika slova prebaciti u mala
+            //i tada napraviti usporedbu
             if(!strcasecmp($userAnswer, $correctAnswer)) {
                 $correctAnswersSum++;
             }
