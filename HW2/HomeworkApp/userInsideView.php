@@ -89,7 +89,7 @@ begin_body(["style" => "background-color:BurlyWood", "text" => "Navy"]);
 
     end_form();
 
-end_body();
+end_body(); 
 
 end_html();
 ?>
