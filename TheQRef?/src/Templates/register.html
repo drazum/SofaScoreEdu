@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TheQRef?</title>
+</head>
+
+<body style="background-color: darkgrey">
+<div style="display: flex;flex-direction: column; justify-content: center;align-items: center;padding: 10%">
+
+    <div style="display: flex;padding: 5%;">
+        <h1>QRef</h1>
+    </div>
+
+
+    <form action={{register_route}} method="post">
+        <div style="display: flex; justify-content: center;padding: 10px">
+            <input type="text" name="name" placeholder="Name">
+        </div>
+        <div style="display: flex; justify-content: center;padding: 10px">
+            <input type="text" name="surname" placeholder="Surname">
+        </div>
+        <div style="display: flex; justify-content: center;padding: 10px">
+            <input type="text" name="date_of_birth" placeholder="Date of birth">
+        </div>
+        <div style="display: flex; justify-content: center;padding: 10px">
+            <input type="text" name="email" placeholder="Email">
+        </div>
+        <div style="display: flex; justify-content: center;padding: 10px">
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <div style="display: flex; justify-content: center;padding: 15px">
+            <input type="password" name="passwordRepeat" placeholder="Repeat password">
+        </div>
+        <div style="display: flex;flex-direction: column; justify-content: center">
+            <input type="submit" value="Register">
+        </div>
+
+    </form>
+    <div style="display: flex; justify-content: center;padding: 2%;">
+        <a href="/"><button>Back</button></a>
+    </div>
+    <div style="display: flex;flex-direction: column; justify-content: center">
+        <h3>{{error_message}}</h3>
+    </div>
+</div>
+
+</body>
+</html>

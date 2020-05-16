@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TheQRef?</title>
+</head>
+
+<body style="background-color: lightgrey">
+{{navigation_bar_view:outputHTML}}
+<div style="border: 3px dotted darkgrey;display: flex;flex-direction: row; justify-content: center;align-items: center">
+    <div style="margin: auto">
+        <h2>Quizzes owned by me </h2>
+    </div>
+
+    <div style="display: flex; flex-direction: column;margin: auto;background-color: darkgrey; width: 70%">
+        {%:{{iteration_number_me}}:
+            <div style="display:flex;margin: auto">
+                <h1>Ime kviza: {{my_quiz_name}}</h1>
+            </div>
+            <div style="display: flex; flex-direction: row;align-items: center">
+                <div style="display:flex;margin: auto">
+                    <h2>Max: {{max}}</h2>
+                </div>
+                <div style="display:flex;margin: auto">
+                    <h2>Min: {{min}}</h2>
+                </div>
+                <div style="display:flex;margin: auto">
+                    <h2>Mean: {{mean}}</h2>
+                </div>
+                <div style="display:flex;margin: auto">
+                    <h2>Standard dev.: {{std_dev}}</h2>
+                </div>
+                <div style="display:flex;margin: auto">
+                    <h2>Median: {{median}}</h2>
+                </div>
+
+            </div>
+        %}
+    </div>
+</div>
+
+<div style="border: 3px dotted darkgrey;display: flex;flex-direction: row; justify-content: center;align-items: center">
+    <div style="margin: auto">
+        <h2>Quizzes owned by others </h2>
+    </div>
+
+    <div style="display: flex; flex-direction: column;margin: auto;background-color: darkgrey; width: 70%">
+        {%:{{other_iteration_number}}:
+        <div style="display:flex;margin: auto">
+            <h1>Ime kviza: {{other_quiz_name}}</h1>
+        </div>
+        <div style="display: flex; flex-direction: row;align-items: center">
+            <div style="display:flex;margin: auto">
+                <h2>Max: {{other_max}}</h2>
+            </div>
+            <div style="display:flex;margin: auto">
+                <h2>Min: {{other_min}}</h2>
+            </div>
+            <div style="display:flex;margin: auto">
+                <h2>Mean: {{other_mean}}</h2>
+            </div>
+            <div style="display:flex;margin: auto">
+                <h2>Standard dev.: {{other_std_dev}}</h2>
+            </div>
+            <div style="display:flex;margin: auto">
+                <h2>Median: {{other_median}}</h2>
+            </div>
+
+        </div>
+        %}
+    </div>
+</div>
+
+
+</body>
+</html>

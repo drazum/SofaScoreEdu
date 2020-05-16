@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TheQRef?</title>
+</head>
+
+<body style="background-color: lightgrey">
+
+{{navigation_bar_view:outputHTML}}
+
+<div style="background-color: darkgrey;display: flex;flex-direction: rows; justify-content: center;align-items: center;height: 50%">
+    <div style="background-color: darkgrey;display: flex;flex-direction: row; justify-content: center;align-items: center;width: 50%">
+        <form method="post">
+            <div style="padding: 10px;display: flex;justify-content: center;align-items: center">
+                <input type="text" name="name" placeholder="Quiz name">
+            </div>
+            <div style="padding: 10px;display: flex;justify-content: center;align-items: center">
+                <input type="text" name="description" placeholder="Quiz description">
+            </div>
+            <div style="padding: 10px;display: flex;justify-content: center;align-items: center">
+                <label>
+                    <input type="checkbox" name="is_public" checked="checked">
+                    Public quiz?
+                </label>
+            </div>
+            <div style="padding: 10px;display: flex;justify-content: center;align-items: center">
+                <label>
+                    <input type="checkbox" name="enable_comments">
+                    Enable commenting on quizzes?
+                </label>
+            </div>
+            <div style="padding: 10px;display: flex;justify-content: center;align-items: center">
+                <input type="submit" value="Create new quiz!">
+            </div>
+            <div style="display: flex;flex-direction: row; justify-content: center;Z">
+                <h2>{{error_message}}</h2>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

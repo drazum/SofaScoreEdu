@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TheQRef?</title>
+</head>
+
+<body style="background-color: lightgrey">
+
+{{navigation_bar_view:outputHTML}}
+
+<div style="background-color: darkgrey;display: flex;flex-direction: rows; justify-content: center;align-items: center;height: 50%">
+    <div style="background-color: darkgrey;display: flex;flex-direction: column; justify-content: center;align-items: center;width: 50%">
+        <h2>Date of birth: {{user_date_of_birth}}</h2>
+        <h2>E-mail: {{user_email}}</h2>
+        <h2>Password: {{user_password}}</h2>
+    </div>
+    <div style="background-color: darkgrey;display: flex;flex-direction: row; justify-content: center;align-items: center;width: 50%">
+        <form action={{pw_change}} method="post">
+            <div style="padding: 10px;display: flex;justify-content: center;align-items: center">
+                <input type="password" name="old_pw" placeholder="Old password">
+            </div>
+            <div style="padding: 10px;display: flex;justify-content: center;align-items: center">
+                <input type="password" name="new_pw" placeholder="New password">
+            </div>
+            <div style="padding: 10px;display: flex;justify-content: center;align-items: center">
+                <input type="password" name="repeat_pw" placeholder="Repeat new password">
+            </div>
+            <div style="padding: 10px;display: flex;justify-content: center;align-items: center">
+                <input type="submit" value="Change password">
+            </div>
+            <div style="display: flex;flex-direction: row; justify-content: center;width:">
+                <h2>{{error_message}}</h2>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

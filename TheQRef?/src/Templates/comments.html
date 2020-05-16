@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TheQRef?</title>
+</head>
+
+<body style="background-color: lightgrey">
+{{navigation_bar_view:outputHTML}}
+<div style="background-color: darkgrey;display: flex;flex-direction: column; justify-content: center;align-items: center;">
+    <div style="display:flex;margin: auto">
+        <h1>{{quiz_name}}</h1>
+    </div>
+    <div style="display:flex; margin: auto">
+        <h3>{{quiz_description}}</h3>
+    </div>
+</div>
+
+<div style="border: 5px solid darkgrey;background-color: lightgray;display: flex;flex-direction: row; justify-content: center;align-items: center;padding: 1%">
+    <div style="margin: auto">
+        {%:{{comments_number}}:
+        <h2>{{user}}</h2>
+        <h4>{{comment}}</h4>
+        %}
+    </div>
+</div>
+
+<div style="border: 5px solid darkgrey;background-color: lightgray;display: flex;flex-direction: column; justify-content: center;align-items: center;padding: 1%">
+
+    <div style="margin: auto">
+        <form action={{comment_route}} method="post">
+            <textarea name="post_comment" placeholder="Write your comment..." rows="20" cols="100"></textarea>
+            <input type="submit" value="Post">
+        </form>
+    </div>
+    <div style="margin: auto">
+        <a href={{back}}><button>Back</button></a>
+    </div>
+    <p>{{error_message}}</p>
+</div>
+
+</body>
+</html>
+
+
+
+

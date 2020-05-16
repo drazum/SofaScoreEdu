@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TheQRef?</title>
+</head>
+
+<body style="background-color: lightgrey">
+
+{{navigation_bar_view:outputHTML}}
+<div style="display: flex;flex-direction: column; justify-content: center;align-items: center;padding: 10%">
+    <div>
+        <form action={{action}} method="post">
+            <textarea onfocusout="this.rows=20" onfocus="this.rows=50" name="new_text" rows="20" cols="100">{{file_content}}</textarea>
+            <input type="submit" value="Save">
+            <a href={{back}}><input type="button" value="Back"></a>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
